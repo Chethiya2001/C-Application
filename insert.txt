@@ -1,0 +1,15 @@
+string gender;
+            if (rbtnMale.Checked == true)
+                gender = "M";
+            else
+                gender = "F";
+
+            string sqlinsert;
+            sqlinsert = "insert into emp_table (empno,name,salary,gender) values('"+tbxEmpID.Text+"','"+tbxEmpName.Text+"','"+tbxSalary.Text+"','"+gender+"')";
+            SqlCommand cmd = new SqlCommand(sqlinsert, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+
+            MessageBox.Show("Inserted");
+            clear_controls();
+            con.Close();

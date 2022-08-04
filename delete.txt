@@ -1,0 +1,12 @@
+ DialogResult ans;
+            ans = MessageBox.Show("Are you to Delete!", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (ans==DialogResult.Yes)
+            {
+                string sqldelete;
+                sqldelete = "delete from emp_table where empno ='" + tbxEmpID + "'";
+                SqlCommand cmd = new SqlCommand(sqldelete, con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("deleted");
+                clear_controls();
+                con.Close();

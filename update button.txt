@@ -1,0 +1,15 @@
+string gender;
+            if (rbtnMale.Checked == true)
+                gender = "M";
+            else
+                gender = "F";
+
+            string sqlupdate;
+            sqlupdate = "update emp_table set name='"+tbxEmpName.Text+"',salary='"+tbxSalary.Text+"', gender='"+gender+"' where empno='"+gender+"' ";
+            SqlCommand cmd = new SqlCommand(sqlupdate, con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+
+            MessageBox.Show(" Succesfully Update... ");
+            clear_controls();
+            con.Close();
